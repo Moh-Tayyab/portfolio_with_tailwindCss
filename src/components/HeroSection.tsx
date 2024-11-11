@@ -100,7 +100,7 @@ export default function Hero() {
                 />
               </div>
               <Link
-                href=""
+                href="https://www.linkedin.com/in/ch-muhammad-tayyab/"
                 className="px-8 py-3 bg-gradient-to-r border border-teal-500 text-teal-400 rounded-lg text-xl font-semibold transform transition-transform duration-300 hover:scale-105 shadow-md"
               >
                 Hire Me
