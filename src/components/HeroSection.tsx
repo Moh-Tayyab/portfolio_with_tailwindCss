@@ -84,7 +84,7 @@ export default function Hero() {
             <h1 className="title-font sm:text-8xl text-6xl mb-4 font-bold text-gray-200 font-poppins">
               Hi, 👋🏻
             </h1>
-            <h1 className="title-font sm:text-8xl text-6xl mb-8 font-bold text-gray-200 font-poppins hover:text-pink-800">
+            <h1 className="title-font sm:text-8xl text-6xl mb-8 font-bold text-gray-200 font-poppins hover:text-teal-400">
               It&apos;s me, Muhammad
               <span className='text-teal-400'> Tayyab</span>
             </h1>
