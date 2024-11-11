@@ -15,7 +15,7 @@ function ContactForm() {
               name="name"
               placeholder="Enter your first name"
               required
-              className="w-full p-3 border-2 border-gray-300 rounded-lg bg-gray-100 focus:outline-none focus:border-teal-500 transition duration-300"
+              className="w-full p-3 border-2 border-gray-300 rounded-lg bg-gray-700 focus:outline-none focus:border-teal-500 transition duration-300"
             />
           </div>
           <div className="input-field">
@@ -26,7 +26,7 @@ function ContactForm() {
               name="email"
               placeholder="Enter your email address"
               required
-              className="w-full p-3 border-2 border-gray-300 rounded-lg bg-gray-100 focus:outline-none focus:border-teal-500 transition duration-300"
+              className="w-full p-3 border-2 border-gray-300 rounded-lg bg-gray-700 focus:outline-none focus:border-teal-500 transition duration-300"
             />
           </div>
           <div className="input-field">
@@ -36,7 +36,7 @@ function ContactForm() {
               name="message"
               placeholder="Type your message here..."
               required
-              className="w-full p-3 border-2 border-gray-300 rounded-lg bg-gray-100 focus:outline-none focus:border-teal-500 transition duration-300 resize-none h-40"
+              className="w-full p-3 border-2 border-gray-300 rounded-lg bg-gray-700 focus:outline-none focus:border-teal-500 transition duration-300 resize-none h-40"
             ></textarea>
           </div>
           <button
