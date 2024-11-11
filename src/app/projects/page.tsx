@@ -43,7 +43,7 @@ export default function Project() {
             )}
             <h3 className='text-3xl font-extrabold py-7'>{project.title}</h3>
             <p className='pb-5 px-3'>{project.description}</p>
-            <button className='py-3 px-10 bg-color my-5 rounded-2xl hover:bg-white hover:text-color'>
+            <button className='py-3 px-10 bg-color my-5 rounded-2xl hover:bg-teal-400 hover:text-color'>
               Read More
             </button>
           </div>
