@@ -1,77 +1,108 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
-import { FaStar } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { FaStar, FaQuoteLeft } from "react-icons/fa";
 
-type Props = {
+interface ReviewProps {
   review: {
     name: string;
     review: string;
     rating: number;
     profession: string;
     image: string;
+    company?: string;
+    date?: string;
   };
-};
+}
 
-const ReviewCard = ({ review }: Props) => {
-  const { name, rating, profession, image, review: clientReview } = review;
+const ReviewCard = ({ review }: ReviewProps) => {
+  const { name, rating, profession, image, review: clientReview, company, date } = review;
 
-  // Create star rating display
   const renderStars = () => {
     return Array.from({ length: 5 }, (_, index) => (
-      <FaStar
+      <motion.span
         key={index}
-        className={`text-lg ${
-          index < rating ? "text-yellow-400" : "text-gray-600"
-        }`}
-      />
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.1 * index }}
+      >
+        <FaStar
+          className={`text-lg ${
+            index < rating ? "text-yellow-400" : "text-gray-600"
+          } transition-colors duration-300`}
+        />
+      </motion.span>
     ));
   };
 
   return (
-    <div className="group relative rounded-xl bg-gradient-to-b from-gray-900 via-teal-900 to-teal-700 p-8 shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]  ">
-      {/* Decorative quotation marks */}
-      <div className="absolute top-0 left-8 opacity-20 ">
-        <svg
-          className="h-24 w-24 text-purple-400"
-          fill="currentColor"
-          viewBox="0 0 32 32"
-        >
-          <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
-        </svg>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="group relative rounded-xl bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-8 
+                 shadow-2xl transition-all duration-500 hover:shadow-[0_8px_30px_rgb(20,184,166,0.15)]"
+    >
+      {/* Decorative Elements */}
+      <div className="absolute -top-4 -left-4 h-24 w-24 rounded-full bg-teal-500/10 blur-2xl" />
+      <div className="absolute -bottom-4 -right-4 h-24 w-24 rounded-full bg-purple-500/10 blur-2xl" />
+      
+      {/* Quote Icon */}
+      <div className="absolute top-6 right-6 text-4xl text-teal-500/20">
+        <FaQuoteLeft />
       </div>
 
       {/* Review Content */}
-      <div className="relative z-10">
-        <p className="mb-6 text-lg italic leading-relaxed text-gray-300">
-          {clientReview}
-        </p>
-
+      <div className="relative z-10 space-y-6">
         {/* Rating Stars */}
-        <div className="mb-8 flex items-center space-x-2">
+        <div className="flex items-center space-x-1">
           {renderStars()}
           <span className="ml-2 text-sm font-medium text-gray-400">
-            ({rating}/5)
+            ({rating}.0)
           </span>
         </div>
 
-        {/* User Info */}
-        <div className="flex items-center border-t border-purple-900/50 pt-6">
-          <div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-full">
+        {/* Review Text */}
+        <div className="min-h-[100px]">
+          <p className="text-lg leading-relaxed text-gray-300 italic">
+            &ldquo;{clientReview}&rdquo;
+          </p>
+        </div>
+
+        {/* Reviewer Info */}
+        <div className="flex items-center border-t border-gray-700/50 pt-6">
+          <div className="relative h-14 w-14 flex-shrink-0">
             <Image
               src={image}
               alt={name}
-              layout="fill"
-              objectFit="cover"
-              className="rounded-full"
+              fill
+              className="rounded-full object-cover ring-2 ring-teal-500/20"
             />
           </div>
-          <div className="ml-4">
-            <h3 className="text-xl font-semibold text-white">{name}</h3>
-            <p className="text-md text-purple-300">{profession}</p>
+          <div className="ml-4 flex flex-col">
+            <h3 className="text-xl font-semibold text-white group-hover:text-teal-400 transition-colors duration-300">
+              {name}
+            </h3>
+            <div className="flex flex-col sm:flex-row sm:items-center text-sm">
+              <span className="text-teal-400">{profession}</span>
+              {company && (
+                <>
+                  <span className="hidden sm:inline text-gray-500 mx-2">•</span>
+                  <span className="text-gray-400">{company}</span>
+                </>
+              )}
+            </div>
+            {date && (
+              <span className="text-xs text-gray-500 mt-1">
+                {date}
+              </span>
+            )}
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

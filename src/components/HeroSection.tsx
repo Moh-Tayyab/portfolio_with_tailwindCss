@@ -2,216 +2,178 @@
 
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Social from './SocialLink';
 import { TextGenerateEffect } from './ui/text-generate-effect';
 import Image from 'next/image';
 import Link from 'next/link';
-import About from '@/app/about/page';
-import Services from '@/app/services/page';
-import Skills from '@/app/skills/page';
-import Project from '@/app/projects/page';
-import ContactForm from '@/app/contact/page';
-import Slider from './Slider';
 
 const heroDescription =
-  'Frontend developer and UI/UX designer focused on creating engaging and responsive web experiences.';
-
-interface BubbleProps {
-  size: string;
-  left: string;
-  top: string;
-  animationDuration: string;
-  animationDelay: string;
-  color: string;
-}
+  'A passionate frontend developer specializing in crafting immersive digital experiences through modern web technologies and intuitive design.';
 
 export default function Hero() {
-  const [bubbles, setBubbles] = useState<BubbleProps[]>([]);
-
-  useEffect(() => {
-    const generateRandomBubbles = () => {
-      const randomBubbles: BubbleProps[] = [];
-      for (let i = 0; i < 15; i++) {
-        const sizeValue = Math.random() * (80 - 30) + 30; // size between 30px and 80px
-        const size = `${sizeValue}px`;
-        const left = `${Math.random() * 100}%`;
-        const top = `${Math.random() * 100}%`;
-        const animationDuration = `${Math.random() * (15 - 8) + 8}s`; // duration between 8s and 15s
-        const animationDelay = `${Math.random() * 5}s`; // delay up to 5s
-        const color = `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(
-          Math.random() * 256
-        )}, ${Math.floor(Math.random() * 256)}, 0.6)`;
-
-        randomBubbles.push({
-          size,
-          left,
-          top,
-          animationDuration,
-          animationDelay,
-          color,
-        });
-      }
-      setBubbles(randomBubbles);
-    };
-
-    generateRandomBubbles();
-  }, []);
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
   return (
-    <>
-    <div>
+    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-900 via-gray-900 to-black">
       <Head>
-        <title>Muhammad Tayyab - Frontend Developer & UI/UX Designer</title>
+        <title>Muhammad Tayyab | Frontend Developer</title>
         <meta name="description" content={heroDescription} />
-        {/* Import Google Fonts */}
-        <Link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
-          rel="stylesheet"
-        />
-        {/* Additional SEO meta tags */}
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta
-          property="og:title"
-          content="Muhammad Tayyab - Frontend Developer & UI/UX Designer"
-        />
-        <meta property="og:description" content={heroDescription} />
       </Head>
 
-      <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 to-black text-gray-200 body-font py-5">
-        {/* Background with Bubble Animations */}
-        <div className="absolute inset-0">
-          {/* Semi-transparent dark overlay for better contrast */}
-          <div className="w-full h-full bg-black opacity-70" />
-          <div className="absolute inset-0 pointer-events-none">
-            {bubbles.map((bubble, index) => (
-              <div
-                key={index}
-                className="bubble"
-                style={{
-                  backgroundColor: bubble.color,
-                  width: bubble.size,
-                  height: bubble.size,
-                  left: bubble.left,
-                  top: bubble.top,
-                  animationDuration: bubble.animationDuration,
-                  animationDelay: bubble.animationDelay,
-                }}
-              />
-            ))}
-          </div>
-        </div>
+      {/* Animated Background */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/50 to-gray-900" />
+      </div>
 
-        <div className="container mx-auto flex flex-col px-6 py-24 md:py-32 items-center relative z-10 md:flex-row">
-          {/* Text & CTA Section */}
-          <motion.div
-            className="flex flex-col items-center text-center md:items-start md:text-left md:w-1/2 mb-12 md:mb-0"
-            initial={{ opacity: 0, y: 50 }}
+      {/* Glowing Orbs */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
+
+      <div className="container mx-auto px-4 py-24 md:py-32 relative z-10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+          {/* Content Section */}
+          <motion.div 
+            className="md:w-1/2 text-center md:text-left"
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-4 font-poppins">
-              Hi, 👋🏻
-            </h1>
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-8 font-poppins transition-colors duration-300 hover:text-teal-400">
-              It&apos;s me, Muhammad <span className="text-teal-400">Tayyab</span>
-            </h2>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              <div className="inline-block px-4 py-2 bg-cyan-500/10 rounded-full mb-6 backdrop-blur-sm border border-cyan-500/20">
+                <p className="text-cyan-400 font-mono text-sm">Available for work</p>
+              </div>
+            </motion.div>
 
-            <div className="max-w-md text-white">
-              <TextGenerateEffect words={heroDescription} />
-            </div>
+            <motion.h1 
+              className="text-5xl md:text-7xl font-bold mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              <span className="bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
+                Muhammad Tayyab
+              </span>
+              <span className="block text-4xl md:text-6xl mt-4 bg-gradient-to-r from-pink-900 via-blue-400 to-purple-800 bg-clip-text text-transparent">
+                Frontend Developer
+              </span>
+            </motion.h1>
+            
+            <motion.div 
+              className="max-w-xl mx-auto md:mx-0 mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+            >
+              <TextGenerateEffect 
+                words={heroDescription} 
+                className="text-lg md:text-xl text-gray-400 leading-relaxed"
+              />
+            </motion.div>
 
-            <div className="flex flex-col sm:flex-row items-center gap-6 mt-8">
+            <motion.div 
+              className="flex flex-col sm:flex-row items-center gap-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+            >
+              <Link
+                href="/cv.pdf"
+                download
+                className="group relative px-8 py-4 bg-gradient-to-r from-pink-900 via-blue-400 to-purple-800 text-white rounded-lg 
+                         font-semibold shadow-lg transition-all duration-300 hover:shadow-cyan-500/25"
+              >
+                <span className="flex items-center gap-2 relative z-10">
+                  Download CV
+                  <motion.svg 
+                    className="w-4 h-4" 
+                    animate={{ y: [0, -3, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </motion.svg>
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-pink-700 via-blue-300 to-purple-800 opacity-0 group-hover:opacity-20 
+                              transition-opacity duration-300 rounded-lg" />
+              </Link>
+
               <Social
                 containerStyles="flex gap-4"
-                iconStyles="w-10 h-10 border border-teal-400 rounded-full hover:bg-teal-400 flex justify-center items-center text-teal-600 transition-all duration-500"
+                iconStyles="w-10 h-10 bg-gray-800/80 backdrop-blur-sm hover:bg-gradient-to-r from-cyan-500 to-blue-500 
+                           rounded-xl flex items-center justify-center text-gray-300 hover:text-white transition-all duration-300 
+                           hover:scale-110 hover:shadow-lg hover:shadow-cyan-500/20"
               />
-              <Link
-                href="https://www.linkedin.com/in/ch-muhammad-tayyab/"
-                aria-label="Hire me on LinkedIn"
-                className="px-6 py-3 border border-teal-500 text-teal-400 rounded-lg text-lg font-semibold transition-transform duration-300 hover:scale-105 shadow-md"
-              >
-                Hire Me
-              </Link>
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Profile Image Section */}
-          <motion.div
-            className="flex justify-center items-center md:w-1/2"
-            initial={{ opacity: 0, scale: 0.8 }}
+          <motion.div 
+            className="md:w-1/2 flex justify-center"
+            style={{ y }}
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            whileHover={{ rotateY: 15, rotateX: -15, scale: 1.05 }}
+            transition={{ duration: 0.8 }}
           >
-            <Image
-              className="neon-circle rounded-full shadow-2xl shadow-teal-400"
-              src="/myProfile.png"
-              alt="Profile image of Muhammad Tayyab"
-              width={500}
-              height={500}
-              priority
-            />
+            <div className="relative w-64 h-64 md:w-96 md:h-96">
+              {/* Gradient Glow Effect */}
+              <div className="absolute inset-0  blur-3xl rounded-full animate-pulse" />
+              
+              {/* Image Container */}
+              <motion.div
+                className="relative rounded-full overflow-hidden shadow-2xl
+                         border-4 border-gray-800/50
+                         bg-gradient-to-b from-gray-900 to-black
+                         before:absolute before:inset-0 
+                         before:bg-gradient-to-b 
+                         before:from-pink-900/10 
+                         before:via-blue-400/10 
+                         before:to-purple-800/10
+                         before:z-10"
+                animate={{ y: [0, -20, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <Image
+                  src="/myProfile.png"
+                  alt="Muhammad Tayyab"
+                  width={500}
+                  height={500}
+                  className="w-full h-full object-cover relative z-20
+                           transition-transform duration-300 hover:scale-105
+                           "
+                  priority
+                />
+              </motion.div>
+            </div>
           </motion.div>
         </div>
+      </div>
 
-        {/* Scroll Down Indicator */}
+      {/* Scroll Indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+      >
+        <p className="text-sm text-cyan-400 mb-2">Explore more</p>
         <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-teal-400"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, repeat: Infinity, repeatType: 'reverse' }}
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
         >
-          <svg
-            className="w-6 h-6 animate-bounce"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          <svg className="w-6 h-6 mx-auto text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
           </svg>
         </motion.div>
-      </section>
-
-      <style jsx>{`
-        .neon-circle {
-          border-radius: 50%;
-          box-shadow: 0 0 20px rgba(0, 255, 255, 0.7),
-            0 0 40px rgba(0, 255, 255, 0.5);
-          transition: transform 0.5s ease;
-        }
-
-        .bubble {
-          position: absolute;
-          border-radius: 50%;
-          animation: floatBubbles 10s ease-in-out infinite;
-          mix-blend-mode: screen;
-        }
-
-        @keyframes floatBubbles {
-          0% {
-            transform: translateY(0);
-            opacity: 0.8;
-          }
-          50% {
-            transform: translateY(-40px);
-            opacity: 1;
-          }
-          100% {
-            transform: translateY(0);
-            opacity: 0.8;
-          }
-        }
-      `}</style>
-    </div>
-    <About />
-    <Services />
-    <Skills />
-    <Project />
-   <Slider/>
-    <ContactForm />
-    </>
+      </motion.div>
+    </section>
   );
 }
