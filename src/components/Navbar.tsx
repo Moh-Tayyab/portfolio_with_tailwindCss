@@ -50,6 +50,12 @@ const Navbar = () => {
               Projects
             </Link>
             <Link
+              href="/reviews"
+              className="text-white hover:text-teal-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+            >
+              Reviews
+            </Link>
+            <Link
               href="/contact"
               className="text-white hover:text-teal-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
             >

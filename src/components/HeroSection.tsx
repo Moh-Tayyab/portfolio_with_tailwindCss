@@ -11,6 +11,8 @@ import About from '@/app/about/page';
 import Services from '@/app/services/page';
 import Skills from '@/app/skills/page';
 import Project from '@/app/projects/page';
+import ContactForm from '@/app/contact/page';
+import Slider from './Slider';
 
 const heroDescription =
   'Frontend developer and UI/UX designer focused on creating engaging and responsive web experiences.';
@@ -208,6 +210,8 @@ export default function Hero() {
     <Services />
     <Skills />
     <Project />
+   <Slider/>
+    <ContactForm />
     </>
   );
 }
