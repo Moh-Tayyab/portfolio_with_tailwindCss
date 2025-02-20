@@ -9,9 +9,10 @@ interface Project {
 
 export const projects: Project[] = [
   {
-    title: 'Governor Website Clone',
-    description: 'I specialize in creating high-quality websites and web applications using HTML, CSS, and JavaScript. I offer custom design and development services.',
-    image: '/projet-1.JPG',
+    title: 'Agentia world',
+    description: 'Agentia world is a website that allows you to find the best agent for your property.',
+    image: '/a1.png',
+    link: 'https://agentia-world-six.vercel.app/',
   },
   {
     title: 'Furniro Ecommerce Project',
@@ -42,7 +43,7 @@ export const projects: Project[] = [
     title: 'Portfolio with Tailwind CSS',
     description: 'A personal portfolio website that highlights design and development skills with Tailwind CSS.',
     image: '/p2.png',
-    link: 'https://my-portfolio-website-tayyab.vercel.app/',
+    link: "https://my-portfolio-website-tayyab.vercel.app/",
   },
   // {
   //   title: 'Project 2',

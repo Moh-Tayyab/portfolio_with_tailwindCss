@@ -24,7 +24,7 @@ export default function Projects() {
           className="mb-16 text-center"
         >
            <SectionHeading 
-          title="Featured Projects"
+          title="Projects"
           subtitle="Showcasing innovative solutions and creative implementations"
         />
           
@@ -55,7 +55,7 @@ export default function Projects() {
               {/* Project Content */}
               <div className="p-6 space-y-4">
                 <div className="space-y-2">
-                  <h3 className="text-2xl font-bold text-white group-hover:text-teal-400 transition-colors duration-300">
+                  <h3 className="text-2xl font-bold text-white group-hover:bg-gradient-to-r group-hover:from-pink-900 group-hover:via-blue-400 group-hover:to-purple-800 group-hover:bg-clip-text group-hover:text-transparent transition-colors duration-300">
                     {project.title}
                   </h3>
                   <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">
@@ -81,18 +81,10 @@ export default function Projects() {
                     href={project.link || "#"}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-4 py-2 text-sm font-medium text-teal-400 hover:text-white 
-                             border border-teal-400 rounded-lg hover:bg-teal-400/10 transition-all duration-300"
+                    className="inline-flex items-center px-4 py-2 text-sm font-medium text-white hover:text-teal-400
+                             border-2 border-pink-900 border-r-blue-400 border-b-purple-800 border-l-teal-500 rounded-lg hover:bg-teal-400/10 transition-all duration-300"
                   >
                     View Project
-                    <svg
-                      className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
                   </Link>
 
                   {project.github && (
@@ -124,19 +116,11 @@ export default function Projects() {
           <Link
             href="/projects"
             className="inline-flex items-center px-8 py-3 text-lg font-medium text-white 
-                     bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full 
-                     hover:from-teal-600 hover:to-cyan-600 transform hover:scale-105 
+                     bg-gradient-to-r from-pink-900 via-blue-400 to-purple-800 rounded-full 
+                     hover:from-pink-900 hover:via-blue-400 hover:to-purple-800 hover:scale-105 
                      transition-all duration-300 shadow-lg hover:shadow-teal-500/25"
           >
-            Explore All Projects
-            <svg
-              className="w-5 h-5 ml-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
+            View All Projects
           </Link>
         </motion.div>
       </div>

@@ -16,12 +16,12 @@ export default function Footer() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                className="w-10 h-10 p-2 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full"
+                className="w-10 h-10 p-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"
                 viewBox="0 0 24 24"
               >
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
               </svg>
-              <span className="ml-3 text-2xl font-bold bg-gradient-to-r from-teal-400 to-cyan-500 bg-clip-text text-transparent">
+              <span className="ml-3 text-2xl font-bold bg-gradient-to-r from-pink-800 via-blue-400 to-purple-800 bg-clip-text text-transparent">
                 Tayyab
               </span>
             </div>

@@ -8,7 +8,6 @@ const Reviews = () => {
     <div className='pt-16 pb-16 bg-[#050709]'>
         <SectionHeading 
           title="Client Reviews"
-          subtitle="What our clients say about us"
         />
         <div className='w-[90%] sm:w-[80%] m-auto mt-20'>
             {/* Slider */}

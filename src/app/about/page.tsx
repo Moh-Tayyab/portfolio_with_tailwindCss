@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FaDownload, FaCode, FaLaptopCode, FaServer, FaMobileAlt } from 'react-icons/fa';
+import SectionHeading from '@/components/Helper/SectionHeading';
 
 const About = () => {
   const skills = [
@@ -39,10 +40,7 @@ const About = () => {
           className="text-center mb-20"
           {...fadeInUp}
         >
-          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent inline-block mb-4">
-            About Me
-          </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto rounded-full" />
+          <SectionHeading title="About Me" />
         </motion.div>
 
         <div className="flex flex-col lg:flex-row items-center justify-center gap-16">
@@ -110,7 +108,7 @@ const About = () => {
               {...fadeInUp}
             >
               <p className="text-lg text-gray-400 leading-relaxed">
-                With {new Date().getFullYear() - 2020}+ years of experience in web development,
+                With {new Date().getFullYear() - 2023}+ years of experience in web development,
                 I specialize in building responsive, performant applications that provide 
                 exceptional user experiences. My expertise spans modern frontend technologies,
                 with a focus on React and Next.js ecosystems.
@@ -127,7 +125,7 @@ const About = () => {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <div className="text-cyan-400 text-sm mb-2">{skill.category}</div>
+                    <div className="bg-gradient-to-r from-pink-900 via-blue-400 to-purple-800 bg-clip-text text-transparent mb-2">{skill.category}</div>
                     <div className="text-gray-200 font-medium">{skill.name}</div>
                   </motion.div>
                 ))}
@@ -143,15 +141,20 @@ const About = () => {
               <Link
                 href="/Profile.pdf"
                 download
-                className="group relative px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-xl 
-                         font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25"
+                className="group relative px-8 py-4 bg-gradient-to-r from-pink-900 via-blue-400 to-purple-800 text-white rounded-xl
+                         font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-teal-500/25
+                         border-2 border-transparent hover:border-teal-500/30 backdrop-blur-sm
+                         before:absolute before:inset-0 before:bg-gradient-to-r before:from-pink-900/20 before:via-blue-400/20 before:to-purple-800/20
+                         before:rounded-xl before:transition-opacity before:opacity-0 hover:before:opacity-100"
               >
                 <span className="flex items-center gap-3 relative z-10">
-                  <FaDownload className="text-xl" />
-                  <span>Download Resume</span>
+                  <FaDownload className="text-xl animate-bounce" />
+                  <span className="bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-cyan-400 hover:to-teal-400 transition-colors">
+                    Download Resume
+                  </span>
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-400 opacity-0 
-                              group-hover:opacity-20 transition-opacity duration-300 rounded-xl" />
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 via-blue-400/20 to-purple-400/20 opacity-0 
+                              group-hover:opacity-100 transition-all duration-500 rounded-xl blur-xl" />
               </Link>
             </motion.div>
           </motion.div>

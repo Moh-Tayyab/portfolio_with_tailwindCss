@@ -77,12 +77,12 @@ export default function Skills() {
       className="relative min-h-screen bg-gradient-to-br from-gray-900 via-[#0B0F1A] to-gray-900 py-24 px-4 overflow-hidden"
       ref={scope}
     >
-      {/* Floating Particles Background */}
+      {/* Floating Particles */}
       <div className="absolute inset-0 opacity-10">
         {Array.from({ length: 50 }).map((_, i) => (
           <motion.div
             key={i}
-            className="absolute bg-gradient-to-r from-pink-900/20 to-purple-800/20 rounded-full"
+            className="absolute rounded-full bg-[#A8D8EA]/20"
             initial={{
               scale: 0,
               opacity: 0,
@@ -118,9 +118,7 @@ export default function Skills() {
           className="text-center mb-24"
         >
           <SectionHeading 
-            title="Technical Mastery"
-            subtitle="Precision-crafted solutions through cutting-edge technologies"
-            theme="decorated"
+            title="Skills"
           />
         </motion.div>
 
@@ -148,26 +146,26 @@ export default function Skills() {
                     whileHover={{ scale: 1.02, y: -5 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <div className="relative p-6 rounded-2xl bg-gradient-to-b from-gray-800/50 to-gray-900/50 border border-gray-700/30 backdrop-blur-xl hover:border-pink-800/30 transition-all duration-300 group hover:shadow-2xl hover:shadow-pink-500/10">
-                      {/* Glowing Border Effect */}
-                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-pink-900/20 via-blue-400/20 to-purple-800/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="relative p-6 rounded-2xl bg-gradient-to-b from-gray-800/50 to-gray-900/50 border border-gray-700/30 backdrop-blur-xl hover:border-[#A8D8EA]/30 transition-all duration-300 group hover:shadow-2xl hover:shadow-[#A8D8EA]/10">
+                      {/* Glowing Effect */}
+                      <div className="absolute inset-0 rounded-2xl bg-[#A8D8EA]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       
                       {/* Skill Header */}
                       <div className="flex items-center justify-between mb-6">
                         <div 
-                          className="text-4xl p-3 rounded-lg bg-gray-700/20 backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:bg-gradient-to-r from-pink-900/20 via-blue-400/20 to-purple-800"
+                          className="text-4xl p-3 rounded-lg bg-gray-700/20 backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:bg-[#A8D8EA]/10"
                           style={{ color: skill.color }}
                         >
                           {skill.icon}
                         </div>
-                        <span className="text-xs font-medium text-pink-400 bg-pink-500/10 px-2 py-1 rounded-full">
+                        <span className="text-xs font-medium text-[#A8D8EA] bg-[#A8D8EA]/10 px-2 py-1 rounded-full">
                           {skill.years}+ Years
                         </span>
                       </div>
                       
                       {/* Skill Details */}
                       <div className="space-y-5">
-                        <h4 className="text-xl font-semibold text-white group-hover:text-pink-300 transition-colors duration-300">
+                        <h4 className="text-xl font-semibold text-white group-hover:text-[#A8D8EA] transition-colors duration-300">
                           {skill.name}
                         </h4>
                         
@@ -175,11 +173,11 @@ export default function Skills() {
                         <div className="space-y-3">
                           <div className="flex justify-between text-sm font-medium">
                             <span className="text-gray-400">Mastery</span>
-                            <span className="text-pink-400">{skill.level}%</span>
+                            <span className="text-[#A8D8EA]">{skill.level}%</span>
                           </div>
                           <div className="h-2 bg-gray-700/30 rounded-full overflow-hidden">
                             <motion.div
-                              className="progress-bar h-full rounded-full bg-gradient-to-r from-pink-900 via-blue-400 to-purple-800"
+                              className="progress-bar h-full rounded-full bg-[#A8D8EA]"
                               style={{ width: 0 }}
                               initial={{ width: 0 }}
                               animate={{ width: `${skill.level}%` }}
@@ -197,9 +195,9 @@ export default function Skills() {
         </div>
       </div>
 
-      {/* Ambient Glow Effects */}
-      <div className="absolute -top-40 left-1/4 w-[800px] h-[800px] bg-radial-gradient(from 60% 50% at 50% 50%, #0ff1 0%, transparent 60%) pointer-events-none" />
-      <div className="absolute -bottom-40 right-1/4 w-[800px] h-[800px] bg-radial-gradient(from 60% 50% at 50% 50%, #00f8ff1a 0%, transparent 60%) pointer-events-none" />
+      {/* Ambient Glow */}
+      <div className="absolute -top-40 left-1/4 w-[800px] h-[800px] bg-radial-gradient(from 60% 50% at 50% 50%, #A8D8EA1a 0%, transparent 60%) pointer-events-none" />
+      <div className="absolute -bottom-40 right-1/4 w-[800px] h-[800px] bg-radial-gradient(from 60% 50% at 50% 50%, #A8D8EA0d 0%, transparent 60%) pointer-events-none" />
     </section>
   );
 }

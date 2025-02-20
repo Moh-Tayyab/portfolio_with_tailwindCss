@@ -6,7 +6,6 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import Social from './SocialLink';
 import { TextGenerateEffect } from './ui/text-generate-effect';
 import Image from 'next/image';
-import Link from 'next/link';
 
 const heroDescription =
   'A passionate frontend developer specializing in crafting immersive digital experiences through modern web technologies and intuitive design.';
@@ -57,9 +56,6 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
             >
-              <span className="bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
-                Muhammad Tayyab
-              </span>
               <span className="block text-4xl md:text-6xl mt-4 bg-gradient-to-r from-pink-900 via-blue-400 to-purple-800 bg-clip-text text-transparent">
                 Frontend Developer
               </span>
@@ -83,28 +79,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
             >
-              <Link
-                href="/cv.pdf"
-                download
-                className="group relative px-8 py-4 bg-gradient-to-r from-pink-900 via-blue-400 to-purple-800 text-white rounded-lg 
-                         font-semibold shadow-lg transition-all duration-300 hover:shadow-cyan-500/25"
-              >
-                <span className="flex items-center gap-2 relative z-10">
-                  Download CV
-                  <motion.svg 
-                    className="w-4 h-4" 
-                    animate={{ y: [0, -3, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                  </motion.svg>
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-pink-700 via-blue-300 to-purple-800 opacity-0 group-hover:opacity-20 
-                              transition-opacity duration-300 rounded-lg" />
-              </Link>
+              
 
               <Social
                 containerStyles="flex gap-4"
